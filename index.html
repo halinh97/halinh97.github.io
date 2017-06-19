@@ -5,11 +5,15 @@
         <script src="jquery.js"></script>
         <script src="peer.js"></script>
         <script src="socket.io.js"></script>
+        <script src="bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
     <body>
         <div id="div-chat">
             <p>Online user:</p>
-            <ul id="ulUser">
+            <ul><li><a id="ulUser" style="color:blue;"></a></li>
             </ul>
             <h3 id="my-peer">Your Id: </h3>
             <video id="localStream" width="300" controls></video>
