@@ -1,34 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>A1 pro</title>
-        <script src="jquery.js"></script>
-        <script src="peer.js"></script>
-        <script src="socket.io.js"></script>
-        <script src="bootstrap.min.js"></script>
-        <link rel="stylesheet" href="bootstrap.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    </head>
-    <body>
-        <div id="div-chat">
-            <p>Online user:</p>
-            <ul><li id="ulUser"></li>
-            </ul>
-            <h3 id="my-peer">Your Id: </h3>
-            <video id="localStream" width="300" controls></video>
-            <br /><br />
-            <video id="remoteStream" width="300" controls></video>
-            <br /><br />
-            <input type="text" id="remoteId" placeholder="Remote ID">
-            <button id="btnCall">Call</button>
-        </div>
-        <div id="div-dang-ky">
-            <br /><br />
-            <input type="text" id="txtUsername" placeholder="Enter your username">
-            <button class="btn btn-primary" id="btnSignUp">Sign Up</button>
-        </div>
-    </body>
-    <script src="main.js"></script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut" icon type="image/x-icon" href="assests/img/favicon.ico">
+    <title>Mean stack</title>
+    <base href="/">
+    <!-- CSS -->
+    <link rel="stylesheet" href="assests/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assests/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assests/css/style.css">
+    <link rel="stylesheet" href="assests/css/admin.css">
+    <!-- <link rel="stylesheet" href="assests/css/dataTables.bootstrap.css"> -->
+    <link rel="stylesheet" href="node_modules/datatables.net-dt/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="node_modules/angular-datatables/dist/css/angular-datatables.css">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="assests/css/flexslider.css" type="text/css">
+
+</head>
+
+<body ng-app="meanApp">
+    <div ui-view>
+    </div>
+
+    <!-- Javascripts -->
+    <script src="assests/js/jquery.min.js"></script>
+    <script src="assests/js/jquery.dataTables.min.js"></script>
+    <script src="assests/js/angular.min.js"></script>
+    <script src="assests/js/angular-ui-router.min.js"></script>
+    <script src="assests/js/angular-modal-service.min.js"></script>
+    <script src="node_modules/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-confirm/dist/angular-confirm.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="assests/js/bootstrap.min.js"></script>
+    <script src="node_modules/angular-datatables/dist/angular-datatables.js"></script>
+    <script src="node_modules/json-export-excel/src/fileSaver.js"></script>
+    <script src="node_modules/json-export-excel/dest/json-export-excel.min.js"></script>
+    <script src="assests/js/dataTables.bootstrap.min.js"></script>
+    <script src="node_modules/angular-resource/angular-resource.js"></script>
+
+
+
+    <script src="assests/js/ng-file-upload.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+
+    <script defer src="assests/js/jquery.flexslider.js"></script>
+    <script src="assests/js/bootstrap-notify0.js"></script>
+
+    <!-- <script src="assests/js/bootstrap-notify.js"></script>
+    <script src="assests/js/jquery.bootstrap-growl.js"></script> -->
+    <script src="app/app.js"></script>
+    <script src="app/app.configs.js"></script>
+
+
+    <script src="app/shared/headerbar/headerbarComp.js"></script>
+    <script src="app/shared/sidebar/sidebarComp.js"></script>
+    <script src="app/shared/services/shareData.js"></script>
+    <script src="app/shared/services/ApiService.js"></script>
+    <script src="app/shared/services/upload.js"></script>
+    <script src="app/shared/services/AuthService.js"></script>
+    <script src="app/shared/footerbar/footerComp.js"></script>
+    <script src="app/components/shopList/shopList.js"></script>
+    <script src="app/components/shopItem/shopItem.js"></script>
+    <script src="app/components/healthy-every-day/healthy-every-dayService.js"></script>
+    <script src="app/components/healthy-every-day/healthy-every-dayCtrl.js"></script>
+    <script src="app/components/nutrition/nutritionCtrl.js"></script>
+    <script src="app/components/nutrition-for-elder/nutrition-for-elderCtrl.js"></script>
+    <script src="app/components/nutrition-for-older/nutrition-for-olderCtrl.js"></script>
+    <script src="app/components/weight-gain/weight-gainCtrl.js"></script>
+    <script src="app/components/weight-loss/weight-lossCtrl.js"></script>
+    <script src="app/dialogs/dialogUtils.js"></script>
+    <script src="app/components/checkout/checkoutCtrl.js"></script>
+    <script src="app/components/aboutUs/aboutCtrl.js"></script>
+    <script src="app/admin/adminCtrl.js"></script>
+    <script src="app/admin/admin-product/admin-productCtrl.js"></script>
+    <script src="app/admin/admin-user/admin-userCtrl.js"></script>
+    <script src="app/admin/admin-productUser/admin-productUserCtrl.js"></script>
+    <script src="app/admin/admin-postProduct/admin-postProductCtrl.js"></script>
+
+</body>
+
 </html>

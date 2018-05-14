@@ -1,0 +1,51 @@
+<div>
+    <div class="row">
+        <div class="col-sm-2">
+            <button class="btn btn-primary" ng-json-export-excel data="$ctrl.userModels"
+            report-fields="{stt:'STT',username: 'Username',role: 'Level'}" filename=" 'export-excel' " separator=",">Export Excel</button>
+        </div>
+    </div>
+</div>
+
+<div class="panel-group">
+    <div class="">
+        <table datatable="ng" class="table table-bordered table-striped">
+            <colgroup>
+                <col width="5%" />
+                <col width="20%" />
+                <col width="20%" />
+                <col width="15%" />
+                <col width="10%" />
+            </colgroup>
+          <thead>
+          <tr>
+              <th>Number</th>
+              <th>Name</th>
+              <th>Picture</th>
+              <th>Level</th>
+              <th>Delete</th>
+          </tr>
+          </thead>
+          <tbody>
+                <tr ng-repeat = "user in $ctrl.userModels">
+                  <td>{{$index +1}}</td>
+                  <td>{{user.username}}</td>
+                  <td><img width="120px" src="{{user.img}}" alt=""></td>
+                  <td ><strong ng-style ="user.level ? 'color:red':''">{{user.role}}</strong></td>
+                  <td ng-hide = '{{user.level}}'> <a href="" ng-click="$ctrl.deleteUser(user)">
+                      <span class="fa fa-trash-o"> <span>Delete</span></span></a>
+                  </td>
+                </tr>
+          </tbody>
+          <tfoot>
+          <tr>
+              <th>Number</th>
+              <th>Name</th>
+              <th>Picture</th>
+              <th>Level</th>
+              <th>Delete</th>
+          </tr>
+          </tfoot>
+        </table>
+    </div>
+</div>
